@@ -14,12 +14,37 @@
 </head>
 
     <body>
-    <!-- Remove this line the first time you edit this file -->
-     This is the index page of your Django app!
-    <!--Add a nav bar here -->
+    
+    <<!-- Navigation bar -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                  <a class="navbar-brand" href="#">Best Car Dealership</a>
+            </div>
+    
+        </div>
+    </nav>
 
-    <!--Add a dealer table here -->
+    <!-- Page content -->
+     {% if course_list %}
+    <div class="container">
+     <div class="card-deck">
+         {% for dealer in dealers_list %}
+                  <div class="card" style="width: 36rem;">
+                   <div class="card-body bg-light">
+                       <h5 class="card-title">{{ dealer.name }}, <span class="text-success">
+                          details </Details></span></h5>
+                     <p class="card-text">{{ dealer.description}}</p>
+                   </div>
+                 </div>
+         {% endfor %}
+     </div>
+    </div>
+    {% else %}
+    <p>No dealers to list</p>
+    {% endif %}
 
+                  
     </body>
 
 </html>
